@@ -1,0 +1,4 @@
+1. Monto servidor con apache2
+2. Compruebo que estan bien concatenadas
+3. Escalada de privilegios  (binario chorrada)
+4. Modulo que lo soluciona auto (script)

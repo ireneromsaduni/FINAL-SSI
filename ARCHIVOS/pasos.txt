@@ -1,0 +1,21 @@
+hay que crear un nuevo servicio
+ sudo nano /etc/systemd/system/mi_script.service
+con el contenido 
+[Unit]
+Description=Mi Script de Arranque
+
+[Service]
+ExecStart=/ruta/a/tu/script.sh
+Restart=always
+User=usuario  # Opcional: usa el nombre de usuario adecuado
+
+[Install]
+WantedBy=multi-user.target
+
+
+
+guardar y cerrar
+sudo systemctl daemon-reload 
+para que reconozca el servicio
+sudo systemctl enable mi_script.service
+para que se ejecute al iniciar  el sistema

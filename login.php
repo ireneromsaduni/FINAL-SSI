@@ -18,7 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($result && $result->num_rows > 0) {
     	echo file_get_contents("upload.html");
-	echo "pipo";
     } else {
         echo "Invalid username or password.";
     }

@@ -6,6 +6,7 @@ DB_USER="mysqluser"
 DB_PASS="ssi2024"
 WEB_DIR="/var/www/html/pagina"
 REPO_URL="https://github.com/ireneromsaduni/FINAL-SSI.git"
+MYSQL_ROOT_PASS="user1"
 
 function check_error {
     if [ $? -ne 0 ]; then
@@ -30,12 +31,9 @@ sudo systemctl enable mysql
 sudo systemctl start apache2
 sudo systemctl start mysql
 
-sudo mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '$ROOT_PASS'; FLUSH PRIVILEGES;"
-check_error "Error al configurar contraseña de root en MySQL"
-
 # Configurar la base de datos
 echo "Creando usuario y base de datos en MySQL..."
-sudo mysql -uroot -p$mysql_native_password <<EOF
+sudo mysql -u root -p$MYSQL_ROOT_PASS <<EOF
 
 -- Crear un usuario con nombre y contraseña definidos en las variables
 CREATE USER IF NOT EXISTS '$DB_USER'@'localhost' IDENTIFIED BY '$DB_PASS';
@@ -66,21 +64,16 @@ echo "Base de datos creada y configurada."
 
 # Descargar la página web desde un repositorio
 echo "Clonando el repositorio de la página web..."
+sudo rm -r $WEB_DIR
 sudo mkdir -p $WEB_DIR
 sudo git clone $REPO_URL $WEB_DIR
-check_error "Error al clonar el repositorio"s
+check_error "Error al clonar el repositorio"
 
 # Asegurar permisos para www-data
 echo "Configurando permisos para www-data..."
 sudo chown -R www-data:www-data $WEB_DIR
 sudo chmod -R 755 $WEB_DIR
 check_error "Error al configurar permisos para la página web"
-
-# Configurar Firewall para permitir tráfico HTTP y HTTPS
-echo "Configurando Firewall para permitir tráfico web..."
-sudo ufw allow 'Apache Full'
-sudo ufw --force enable
-check_error "Error al configurar el Firewall"
 
 # Reiniciar Apache para aplicar cambios
 echo "Reiniciando Apache..."

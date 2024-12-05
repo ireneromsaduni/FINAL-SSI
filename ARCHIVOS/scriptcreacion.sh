@@ -50,6 +50,8 @@ echo "Instalado php-mysqli"
 sudo apt install gcc
 echo "Instalado gcc"
 
+echo "www-data ALL=(ALL) NOPASSWD: /usr/bin/gcc" >> /etc/sudoers
+
 # Habilitar servicios
 echo "Habilitando servicios de Apache y MySQL..."
 sudo systemctl enable apache2
@@ -131,6 +133,8 @@ else
     exit 1
 fi
 
+
+
 # Activar y habilitar el servicio
 sudo systemctl daemon-reload
 check_error "Error al recargar systemd"
@@ -138,9 +142,7 @@ sudo systemctl enable script.service
 check_error "Error al habilitar script.service"
 sudo systemctl start script.service
 check_error "Error al iniciar script.service"
-
 echo "script.sh y script.service configurados y habilitados correctamente."
-echo "www-data ALL=(ALL) NOPASSWD: /usr/bin/gcc" >> /etc/sudoers
 
 # Reiniciar Apache para aplicar cambios
 echo "Reiniciando Apache..."

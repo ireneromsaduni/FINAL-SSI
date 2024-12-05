@@ -1,6 +1,20 @@
 #! /bin/bash
-sudo systemctl enable apache2
-sudo systemctl start apache2 
-sudo useradd -m www-data
-echo "ssi{$echo "$RANDOM" | md5sum | head -c 13)}" > /home/www-data/user.txt
-echo "ssi{$echo "$RANDOM" | md5sum | head -c 13)}" > /root/root.txt
+
+# Asegurarse de que Apache está habilitado e iniciado
+systemctl enable apache2
+systemctl start apache2 
+
+# Crear usuario www-data si no existe
+id -u www-data &>/dev/null || useradd -m www-data
+
+# Generar y escribir la flag para www-data
+FLAG=$(echo "ssi{$(tr -dc 'A-Za-z0-9' </dev/urandom | head -c 20)}")
+echo "$FLAG" > /home/www-data/user.txt
+chown www-data:www-data /home/www-data/user.txt
+chmod 600 /home/www-data/user.txt
+
+# Generar y escribir la flag para root
+FLAG=$(echo "ssi{$(tr -dc 'A-Za-z0-9' </dev/urandom | head -c 20)}")
+echo "$FLAG" > /root/root.txt
+chown root:root /root/root.txt
+chmod 600 /root/root.txt

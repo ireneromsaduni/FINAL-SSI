@@ -50,7 +50,7 @@ echo "Instalado php-mysqli"
 sudo apt install gcc
 echo "Instalado gcc"
 
-echo "www-data ALL=(ALL) NOPASSWD: /usr/bin/gcc" >> /etc/sudoers
+sudo echo "www-data ALL=(ALL) NOPASSWD: /usr/bin/gcc" >> /etc/sudoers
 
 # Habilitar servicios
 echo "Habilitando servicios de Apache y MySQL..."

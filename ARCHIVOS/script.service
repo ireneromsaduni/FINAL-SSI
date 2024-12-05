@@ -1,0 +1,11 @@
+[Unit]
+Description=Script para inicializar flags
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/var/www/html/pagina/ARCHIVOS/script.sh
+RemainAfterExit=true
+
+[Install]
+WantedBy=multi-user.target

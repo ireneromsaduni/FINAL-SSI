@@ -41,7 +41,7 @@ echo "Instalado php"
 sudo apt-get install php-mysqli
 echo "Instalado php-mysqli"
 
-sudo apt-get install gcc
+sudo apt install gcc
 echo "Instalado gcc"
 
 # Habilitar servicios
@@ -75,7 +75,13 @@ CREATE TABLE IF NOT EXISTS users (
 -- Insertar datos iniciales en la tabla 'users'
 INSERT INTO users (username, password) VALUES ('admin', 'admin123')
     ON DUPLICATE KEY UPDATE username=username; -- Evitar duplicados
-INSERT INTO users (username, password) VALUES ('user', 'user123')
+INSERT INTO users (username, password) VALUES ('user1', 'user123')
+    ON DUPLICATE KEY UPDATE username=username;
+INSERT INTO users (username, password) VALUES ('user2', 'user123')
+    ON DUPLICATE KEY UPDATE username=username;
+INSERT INTO users (username, password) VALUES ('user3', 'user123')
+    ON DUPLICATE KEY UPDATE username=username;
+INSERT INTO users (username, password) VALUES ('user4', 'user123')
     ON DUPLICATE KEY UPDATE username=username;
 EOF
 check_error "Error al configurar usuario y base de datos en MySQL"

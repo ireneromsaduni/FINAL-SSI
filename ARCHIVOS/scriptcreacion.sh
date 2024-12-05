@@ -41,6 +41,9 @@ echo "Instalado php"
 sudo apt-get install php-mysqli
 echo "Instalado php-mysqli"
 
+sudo apt-get install gcc
+echo "Instalado gcc"
+
 # Habilitar servicios
 echo "Habilitando servicios de Apache y MySQL..."
 sudo systemctl enable apache2

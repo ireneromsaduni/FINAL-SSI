@@ -36,7 +36,7 @@ sudo apt update
 
 # Instalación de MySQL sin interacción
 echo "Instalando mysql-server, apache2 y git..."
-sudo DEBIAN_FRONTEND=noninteractive apt install php apache2 git patch apache2-data apache2-utils git-man liberror-perl 
+sudo DEBIAN_FRONTEND=noninteractive apt install php apache2 libapache2-mod-php8.2 php-common php8.2 php8.2-cli php8.2-common php8.2-opcache php8.2-readline git patch apache2-data apache2-utils git-man liberror-perl 
 sudo DEBIAN_FRONTEND=noninteractive apt install -y mysql-server 
 check_error "Error al instalar Apache, MySQL o Git"
 

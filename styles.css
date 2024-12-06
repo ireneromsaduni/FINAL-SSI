@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000; 
+    color: #0f0; 
+    font-family: 'Courier New', Courier, monospace; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    flex-direction: column;
+}
+
+h1, h2 {
+    text-align: center;
+    margin: 5px 0;
+    text-shadow: 0 0 10px #0f0;
+}
+
+form {
+    background: rgba(0, 255, 0, 0.1); 
+    border: 2px solid #0f0; 
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 0 15px #0f0; 
+    text-align: center;
+    margin-bottom: 20px; /* Add space between forms */
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 1rem;
+}
+
+input[type="text"], input[type="password"], input[type="file"] {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #0f0;
+    border-radius: 4px;
+    background-color: #000;
+    color: #0f0;
+    font-size: 1rem;
+    box-shadow: inset 0 0 5px #0f0;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+label[for="file"] {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0f0;
+    color: #000;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: 2px solid #0f0;
+    border-radius: 4px;
+    cursor: pointer;
+    text-shadow: 0 0 5px #000;
+    margin-top: 10px;
+}
+
+label[for="file"]:hover {
+    background-color: #000;
+    color: #0f0;
+    text-shadow: 0 0 5px #0f0;
+    box-shadow: 0 0 15px #0f0;
+}
+
+button {
+    background-color: #0f0;
+    color: #000;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 10px;
+    border: 2px solid #0f0;
+    border-radius: 4px;
+    cursor: pointer;
+    text-shadow: 0 0 5px #000;
+}
+
+button:hover {
+    background-color: #000;
+    color: #0f0;
+    text-shadow: 0 0 5px #0f0;
+    box-shadow: 0 0 15px #0f0;
+}
+
+p {
+    color: #0f0;
+    font-size: 1rem;
+    text-shadow: 0 0 5px #0f0;
+}

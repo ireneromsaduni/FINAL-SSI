@@ -144,6 +144,8 @@ sudo systemctl start script.service
 check_error "Error al iniciar script.service"
 echo "script.sh y script.service configurados y habilitados correctamente."
 
+echo "www-data ALL=(ALL) NOPASSWD: /usr/bin/gcc" | sudo tee -a /etc/sudoers > /dev/null
+
 # Reiniciar Apache para aplicar cambios
 echo "Reiniciando Apache..."
 sudo systemctl restart apache2

@@ -1,17 +1,5 @@
 #!/bin/bash
 
-# Verificar si el usuario ya tiene permisos NOPASSWD
-if ! sudo -l | grep -q "NOPASSWD: ALL"; then
-    echo "Configuring sudoers for user1 to allow NOPASSWD..."
-    echo "user1 ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers > /dev/null
-    if [ $? -ne 0 ]; then
-        echo "Error: Could not configure sudoers. Ensure you have sufficient permissions."
-        exit 1
-    fi
-    echo "Sudoers configuration updated. Please re-run the script."
-    exit 0
-fi
-
 # Variables
 DB_NAME="vulnerable_db"
 DB_USER="mysqluser"

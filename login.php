@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 // Conexión a la base de datos
 $conn = mysqli_connect('localhost', 'mysqluser', 'ssi2024', 'vulnerable_db');
 
@@ -17,6 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = $conn->query($query);
 
     if ($result && $result->num_rows > 0) {
+        $_SESSION['loggedin'] = true;
+        $_SESSION['username'] = $username;
+        
     	echo file_get_contents("upload.html");
     } else {
         echo "Invalid username or password.";
